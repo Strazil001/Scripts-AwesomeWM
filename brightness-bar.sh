@@ -1,6 +1,6 @@
 # Variables
 DOT=""
-D="-"
+D="·"
 BAR=""
 TARGET=""
 DIR="/sys/class/backlight/amdgpu_bl1"
@@ -16,10 +16,12 @@ else
 	CURRENT=$(cat ${TARGET}/actual_brightness)
 fi
 
-((CURRENT=CURRENT/2,55))
-((CURRENT=CURRENT/10))
+((CURRENT = CURRENT / 2, 55))
+((CURRENT = CURRENT / 10))
 for ((i = 0; i < $CURRENT; i++)); do
-	BAR+=$DOT
+	if [ $i -lt 10 ]; then
+		BAR+=$DOT
+	fi
 done
 for ((i = $CURRENT; i < 10; i++)); do
 	BAR+=$D
