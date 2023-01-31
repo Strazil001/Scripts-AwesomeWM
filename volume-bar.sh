@@ -1,8 +1,13 @@
 #!/bin/bash
 
 # Variables
+
+# Devices
+LAPTOP-SPEAKERS="Family 17h/19h HD Audio Controller Analog Stereo"
+BOSE-NC700-HEADPHONES="Bose NC 700 HP"
+
 AMMOUNT=$(pactl list sinks short | awk 'END {print NR}')
-LAPTOP-SPEAKERS="alsa_output.pci-0000_05_00.6.analog-stereo"
+DESCRIPTION=""
 DOT=""
 D="·"
 BAR=""
